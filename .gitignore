@@ -62,7 +62,8 @@ laultimamedina-cms/
 # Testing
 .coverage
 
-# Keep all documentation files
+# Documentation files (keep most, ignore sensitive ones)
+DEPLOYMENT_COMPLETE.md
 
 # Misc
 .cache
