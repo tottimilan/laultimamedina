@@ -1,0 +1,35 @@
+# Frontend
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_DEFAULT_LOCALE=es
+
+# Database
+DATABASE_URL="file:./dev.db"
+
+# NextAuth
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=tu_secret_seguro_aqui
+
+# Strapi
+NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
+STRAPI_API_TOKEN=tu_token_aqui
+
+# Stripe
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
+
+# Stripe Webhooks
+STRIPE_WEBHOOK_SECRET=whsec_...
+STRIPE_WEBHOOK_SECRET_BILLING=whsec_...
+
+# Opcional - Email
+BREVO_API_KEY=tu_api_key_aqui
+MAILCHIMP_API_KEY=tu_api_key_aqui
+MAILCHIMP_LIST_ID_ES=tu_list_id_aqui
+MAILCHIMP_LIST_ID_EN=tu_list_id_aqui
+MAILCHIMP_LIST_ID_AR=tu_list_id_aqui
+
+# Opcional - Analytics
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+
+# Opcional - Media Storage (Cloudflare R2)
+NEXT_PUBLIC_R2_PUBLIC_URL=https://media.laultimamedina.org

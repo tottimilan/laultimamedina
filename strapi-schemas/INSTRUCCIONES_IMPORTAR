@@ -1,0 +1,64 @@
+# 📋 CÓMO IMPORTAR LOS CONTENT TYPES EN STRAPI
+
+## ✅ SCHEMAS JSON CREADOS
+
+He creado los archivos JSON para todos los content types:
+1. video.json
+2. podcast-series.json
+3. podcast-episode.json
+4. learn-module.json
+5. experience.json
+6. infographic.json
+
+## 📂 UBICACIÓN DE ARCHIVOS
+
+Los schemas deben ir en:
+```
+laultimamedina-cms/src/api/[nombre-content-type]/content-types/[nombre-content-type]/schema.json
+```
+
+## 🚀 PASOS PARA IMPORTAR
+
+### Opción A: Crear Manualmente en UI (Recomendado)
+
+Es más fácil y seguro usar el Content-Type Builder de Strapi:
+
+1. Abre Strapi Admin: `http://localhost:1337/admin`
+2. Ve a **Content-Type Builder**
+3. Click "Create new collection type"
+4. Sigue las estructuras de los archivos JSON que creé
+
+### Opción B: Copiar Archivos (Avanzado)
+
+Si quieres copiar los archivos directamente:
+
+1. **Detén Strapi** si está corriendo
+2. Para cada content type, crea la estructura:
+   ```
+   laultimamedina-cms/src/api/video/
+   └── content-types/
+       └── video/
+           └── schema.json
+   ```
+3. Copia el contenido del schema correspondiente
+4. **Reinicia Strapi**
+5. Los content types aparecerán automáticamente
+
+## 📋 CONTENT TYPES A CREAR
+
+Te he documentado EXACTAMENTE qué campos crear para cada uno en el archivo `PLAN_FINAL_COMPLETO`.
+
+## 🎯 MI RECOMENDACIÓN
+
+**Créalos manualmente en Strapi UI** - Es más rápido y seguro:
+- 5-7 minutos por content type
+- Sin riesgo de errores
+- Interfaz visual clara
+
+Mientras los creas, puedes seguir esta lista en orden:
+1. Video (más simple)
+2. PodcastSeries
+3. PodcastEpisode (recuerda añadir video_url!)
+4. LearnModule
+5. Experience (tiene muchos campos)
+6. Infographic (opcional)

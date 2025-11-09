@@ -1,0 +1,208 @@
+# Reglas de Cursor para La Última Medina
+
+## Stack Principal
+- Next.js 14 (App Router)
+- React 18 con TypeScript
+- Tailwind CSS + styled-components
+- next-intl para i18n (ES/EN)
+- Strapi (Headless CMS)
+- Stripe (Pagos)
+
+## Convenciones de Código
+
+### TypeScript
+- Siempre usar tipos explícitos
+- Evitar `any`, usar `unknown` si es necesario
+- Interfaces para props de componentes
+- Types para datos del CMS
+
+### Componentes React
+- Componentes funcionales con hooks
+- 'use client' solo cuando sea necesario
+- Server Components por defecto
+- Archivos .tsx para componentes
+- Nombres en PascalCase
+
+### Estilos
+- styled-components para componentes específicos
+- Tailwind para utilidades
+- Usar tokens del tema (theme.ts)
+- Responsive design obligatorio
+- Mobile-first approach
+
+### i18n
+- Todas las rutas con `/{locale}/`
+- Siempre usar `useTranslations` para UI strings
+- Namespace por sección (home, read, watch, etc.)
+- Traducciones en messages/es.json y messages/en.json
+
+### SEO
+- Metadata en cada página
+- generateMetadata() para páginas dinámicas
+- Usar utilidades de src/lib/seo.ts
+- hreflang en todas las páginas
+- schema.org cuando aplique
+
+### Estructura de Archivos
+```
+src/app/[locale]/
+  - page.tsx (Server Component con metadata)
+  - layout.tsx (si necesita layout específico)
+src/components/
+  - Componentes reutilizables
+  - Organizar por función, no por tipo
+src/components/pages/
+  - Páginas completas como Client Components
+src/lib/
+  - Utilidades y helpers
+  - strapi.ts para queries al CMS
+  - seo.ts para metadata y schema
+```
+
+### Naming
+- Archivos de componentes: PascalCase (ArticleCard.tsx)
+- Archivos de utilidades: camelCase (strapi.ts)
+- Variables: camelCase
+- Constantes: UPPER_SNAKE_CASE
+- Tipos/Interfaces: PascalCase
+
+### Imports
+```typescript
+// Orden de imports:
+1. React/Next.js
+2. Third-party libraries
+3. @/ imports (internos)
+4. Relative imports
+5. Types
+```
+
+### Comentarios
+- JSDoc para funciones públicas
+- Comentarios en español para explicaciones complejas
+- TODO: para tareas pendientes con contexto
+
+## Mejores Prácticas
+
+### Performance
+- Usar next/image siempre para imágenes
+- Lazy loading para componentes pesados
+- ISR con revalidate para contenido dinámico
+- Memoización cuando sea necesario
+
+### Accesibilidad
+- Semántica HTML correcta
+- Alt text obligatorio en imágenes
+- ARIA labels donde sea necesario
+- Focus visible siempre
+- Navegación por teclado funcional
+
+### Seguridad
+- Nunca exponer secrets en cliente
+- Validar datos del servidor
+- Sanitizar inputs de usuario
+- CSP headers configurados
+- Rate limiting en APIs
+
+### Git
+- Commits en español
+- Mensajes descriptivos
+- Branch por feature
+- No commitear .env
+- No commitear build artifacts
+
+## Patrones Comunes
+
+### Página con i18n y SEO
+```typescript
+import { getTranslations } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { generatePageMetadata } from '@/lib/seo';
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale });
+  return generatePageMetadata({
+    title: t('title'),
+    description: t('description'),
+    locale: params.locale,
+    path: '/path',
+  });
+}
+
+export default function Page() {
+  return <PageComponent />;
+}
+```
+
+### Componente con styled-components
+```typescript
+'use client';
+
+import styled from 'styled-components';
+import { useTranslations } from 'next-intl';
+
+const Container = styled.div`
+  padding: ${({ theme }) => theme.spacing.xl};
+`;
+
+export default function Component() {
+  const t = useTranslations('namespace');
+  return <Container>{t('key')}</Container>;
+}
+```
+
+### Query a Strapi
+```typescript
+import { getArticles } from '@/lib/strapi';
+
+const { data, meta } = await getArticles({
+  locale,
+  filters: { type: { $eq: 'blog' } },
+  sort: 'publishedAt:desc',
+  page: 1,
+  pageSize: 12,
+});
+```
+
+## No Hacer
+
+❌ Usar CSS modules (usar styled-components o Tailwind)
+❌ Hardcodear strings de UI (usar i18n)
+❌ Ignorar accesibilidad
+❌ Hacer componentes sin tipos
+❌ Fetch directo a Strapi (usar src/lib/strapi.ts)
+❌ Olvidar metadata SEO
+❌ Omitir locale en rutas
+❌ Usar var (usar const/let)
+❌ Mutar props
+❌ Olvidar loading states
+
+## Testing
+
+### E2E con Playwright
+```typescript
+test('should navigate correctly', async ({ page }) => {
+  await page.goto('/es');
+  await expect(page).toHaveTitle(/La Última Medina/);
+});
+```
+
+### Naming de tests
+- Descriptivo en español
+- Estructura: describe → test
+- Un test, una cosa
+
+## Documentación
+
+- README.md: overview del proyecto
+- Comentarios JSDoc en funciones complejas
+- TODO con contexto suficiente
+- Actualizar CHANGELOG.md en releases
+
+## Recursos
+
+- Blueprint: blueprint.md
+- Instalación: INSTALL.md
+- Strapi: STRAPI_SETUP.md
+- Estado: PROJECT_STATUS.md
+- Lanzamiento: CHECKLIST_LANZAMIENTO.md
+

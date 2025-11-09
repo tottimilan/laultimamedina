@@ -1,0 +1,106 @@
+// Schema de base de datos para La Última Medina
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Usuario
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  password      String
+  image         String?
+  locale        String    @default("es")
+  emailVerified DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relaciones
+  donations     Donation[]
+  favorites     Favorite[]
+  viewHistory   ViewHistory[]
+  sessions      Session[]
+
+  // Stripe
+  stripeCustomerId       String?   @unique
+  stripeSubscriptionId   String?
+  stripePriceId          String?
+  stripeCurrentPeriodEnd DateTime?
+
+  @@map("users")
+}
+
+// Sesiones de usuario (para NextAuth)
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+// Donaciones históricas
+model Donation {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  amount           Float
+  currency         String   @default("eur")
+  type             String   // "one-time" o "monthly"
+  status           String   // "succeeded", "pending", "failed", "canceled"
+  
+  stripePaymentId  String?  @unique
+  matchGiftCompany String?  // Nombre de empresa para match gift
+  
+  createdAt        DateTime @default(now())
+  
+  @@map("donations")
+  @@index([userId])
+}
+
+// Favoritos (bookmarks)
+model Favorite {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  contentType String   // "article", "video", "podcast", "learn"
+  contentId   String   // Slug del contenido
+  contentTitle String
+  
+  createdAt   DateTime @default(now())
+  
+  @@unique([userId, contentType, contentId])
+  @@map("favorites")
+  @@index([userId])
+}
+
+// Historial de visualización
+model ViewHistory {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  contentType  String   // "article", "video", "podcast", "learn"
+  contentId    String   // Slug del contenido
+  contentTitle String
+  
+  // Progreso (para videos/podcasts)
+  progress     Float?   @default(0) // 0-100
+  completed    Boolean  @default(false)
+  
+  viewedAt     DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  @@map("view_history")
+  @@index([userId])
+  @@index([userId, contentType, contentId])
+}

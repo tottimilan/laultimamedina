@@ -1,0 +1,194 @@
+{
+  "common": {
+    "readMore": "Leer más",
+    "learnMore": "Saber más",
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "notFound": "No encontrado",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "backToHome": "Volver al inicio",
+    "share": "Compartir"
+  },
+  
+  "nav": {
+    "home": "Inicio",
+    "read": "Leer",
+    "watch": "Ver",
+    "listen": "Escuchar",
+    "learn": "Aprender",
+    "donate": "Donar",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "careers": "Trabaja con nosotros"
+  },
+  
+  "footer": {
+    "about": "Acerca de",
+    "mission": "Nuestra Misión",
+    "scholarlyRigor": "Rigor Académico",
+    "fundraisingPhilosophy": "Filosofía de Recaudación",
+    "annualReports": "Informes Anuales",
+    "policies": "Políticas",
+    "privacy": "Privacidad",
+    "donorPrivacy": "Privacidad de Donantes",
+    "careers": "Oportunidades Laborales",
+    "volunteer": "Voluntariado",
+    "contact": "Contacto",
+    "followUs": "Síguenos",
+    "newsletter": "Boletín",
+    "allRightsReserved": "Todos los derechos reservados"
+  },
+  
+  "home": {
+    "hero": {
+      "title": "La Última Medina",
+      "subtitle": "Un cruce de caminos entre historia, religión y filosofía ¿Te unes?",
+      "ctaPrimary": "Explorar contenido",
+      "ctaSecondary": "Apoyar nuestra misión"
+    },
+    "sections": {
+      "read": "Lee artículos profundos",
+      "watch": "Mira conferencias y series",
+      "listen": "Escucha podcasts inspiradores",
+      "learn": "Aprende con cursos estructurados"
+    },
+    "spotlight": {
+      "title": "Destacados"
+    }
+  },
+  
+  "read": {
+    "title": "Artículos y Publicaciones",
+    "subtitle": "Ensayos, investigaciones y traducciones sobre el Islam",
+    "types": {
+      "all": "Todos",
+      "paper": "Artículos académicos",
+      "blog": "Blog",
+      "ebook": "Libros electrónicos",
+      "report": "Informes",
+      "translation": "Traducciones",
+      "printable": "Imprimibles"
+    },
+    "readingTime": "{minutes} min de lectura",
+    "download": "Descargar PDF"
+  },
+  
+  "watch": {
+    "title": "Vídeos y Conferencias",
+    "subtitle": "Conferencias, series educativas y contenido visual",
+    "watchNow": "Ver ahora",
+    "transcript": "Ver transcripción"
+  },
+  
+  "listen": {
+    "title": "Podcasts",
+    "subtitle": "Conversaciones y reflexiones sobre el Islam contemporáneo",
+    "listenNow": "Escuchar ahora",
+    "episodes": "episodios",
+    "latestEpisode": "Último episodio"
+  },
+  
+  "learn": {
+    "title": "Aprender",
+    "subtitle": "Programas educativos estructurados",
+    "programs": {
+      "conversations": "Conversaciones",
+      "convictionCircles": "Círculos de Convicción",
+      "curriculum": "Currículo Educativo",
+      "talkToolkits": "Herramientas para Charlas",
+      "wisayQa": "WISAY - Preguntas y Respuestas"
+    },
+    "startLearning": "Comenzar a aprender",
+    "downloadResources": "Descargar recursos",
+    "viewAll": "Ver todos los módulos"
+  },
+  
+  "donate": {
+    "title": "Apoya Nuestra Misión",
+    "subtitle": "Tu apoyo hace posible la educación islámica de calidad",
+    "oneTime": "Donación única",
+    "monthly": "Donación mensual",
+    "custom": "Cantidad personalizada",
+    "amounts": {
+      "25": "25 €",
+      "50": "50 €",
+      "100": "100 €",
+      "250": "250 €"
+    },
+    "ctaDonate": "Donar ahora",
+    "secure": "Transacción segura con Stripe",
+    "taxDeductible": "Deducible de impuestos",
+    "whyDonate": "¿Por qué donar?",
+    "impact": "Tu impacto",
+    "becomeASustainer": "Conviértete en donante mensual"
+  },
+  
+  "careers": {
+    "title": "Únete a Nuestro Equipo",
+    "subtitle": "Oportunidades para contribuir a nuestra misión",
+    "openPositions": "Posiciones abiertas",
+    "noPositions": "No hay posiciones abiertas en este momento",
+    "applyNow": "Aplicar ahora",
+    "volunteer": "Oportunidades de voluntariado",
+    "departments": {
+      "all": "Todos",
+      "education": "Educación",
+      "media": "Medios",
+      "operations": "Operaciones",
+      "fundraising": "Recaudación"
+    }
+  },
+  
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Estamos aquí para ayudarte",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "success": "Mensaje enviado correctamente",
+    "error": "Error al enviar el mensaje. Inténtalo de nuevo."
+  },
+  
+  "filters": {
+    "topic": "Tema",
+    "type": "Tipo",
+    "series": "Serie",
+    "date": "Fecha",
+    "latest": "Más recientes",
+    "oldest": "Más antiguos",
+    "popular": "Más populares",
+    "clear": "Limpiar filtros",
+    "results": "{count} resultados"
+  },
+  
+  "seo": {
+    "defaultTitle": "La Última Medina - Conocimiento Islámico",
+    "defaultDescription": "Educación islámica accesible, rigurosa y transformadora. Artículos, vídeos, podcasts y programas educativos.",
+    "readTitle": "Artículos y Publicaciones",
+    "watchTitle": "Vídeos y Conferencias",
+    "listenTitle": "Podcasts",
+    "learnTitle": "Aprender",
+    "donateTitle": "Apoya Nuestra Misión"
+  },
+  
+  "consent": {
+    "title": "Respetamos tu privacidad",
+    "message": "Usamos cookies para mejorar tu experiencia y analizar el tráfico de nuestro sitio. ¿Aceptas el uso de cookies?",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "customize": "Personalizar",
+    "learnMore": "Más información"
+  },
+  
+  "validation": {
+    "required": "Este campo es obligatorio",
+    "email": "Por favor, introduce un correo electrónico válido",
+    "minLength": "Mínimo {min} caracteres",
+    "maxLength": "Máximo {max} caracteres"
+  }
+}
+
